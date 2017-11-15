@@ -11,9 +11,10 @@
     "url": "git+https://github.com/sethblack/javascript-fortuna.git"
   },
   "keywords": [
-    "strong",
-    "password",
-    "generator"
+    "random number generator",
+    "random",
+    "prng",
+    "fortuna"
   ],
   "author": "Seth Black <sblack@sethserver.com> (https://www.sethserver.com)",
   "license": "Apache 2.0",

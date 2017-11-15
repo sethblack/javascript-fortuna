@@ -11,7 +11,7 @@ Javascript implementation of the Fortuna PRNG.
 This is a quick out-of-the-box usage example. This is not how you'd use it in production if you want it to be secure, but it will give you a decent random number.
 
 ```javascript
-const fortuna = require('fortuna');
+const fortuna = require('javascript-fortuna');
 
 fortuna.init();
 const randomNumber = fortuna.random();
@@ -24,7 +24,7 @@ console.log(`I picked ${randomNumber}!`);
 To reduce predictability add entropy from dynamic sytem state inforation such as CPU usage, number of active processes, availalbe ram and disk io.
 
 ```javascript
-const fortuna = require('fortuna');
+const fortuna = require('javascript-fortuna');
 const si = require('systeminformation');
 const sha512 = require('js-sha512');
 
