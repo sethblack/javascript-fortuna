@@ -28,14 +28,30 @@ const fortuna = require('javascript-fortuna');
 const si = require('systeminformation');
 const sha512 = require('js-sha512');
 
-async function entropyFunction() {
-  const cpuSpeed = await si.cpu();
-  const processes = await si.processes();
-  const disksIO = await si.disksIO();
-  const memory = await si.mem();
+function entropyAccumFunction() {
+  return new Promise(async (resolve) => {
+    const cpuSpeed = await si.cpu();
+    const processes = await si.processes();
+    const disksIO = await si.disksIO();
+    const memory = await si.mem();
 
-  return sha512(`${JSON.stringify(cpuSpeed)}:${JSON.stringify(processes)}:${JSON.stringify(disksIO)}:${JSON.stringify(memory)}`);
+    jsspg.entropyVal = sha512(`${JSON.stringify(cpuSpeed)}:${JSON.stringify(processes)}:${JSON.stringify(disksIO)}:${JSON.stringify(memory)}`);
+
+    console.log(`ent: ${jsspg.entropyVal}`);
+
+    resolve();
+  });
 }
+
+function entropyFunction() {
+  return jsspg.entropyVal;
+}
+
+let entropyInterval = setInterval(async () => {
+  await entropyAccumFunction();
+}, 250);
+
+jsspg.initialized = true;
 
 fortuna.init({ timeBasedEntropy: true, accumulateTimeout: 100, entropyFxn: entropyFunction });
 
@@ -43,9 +59,11 @@ const num1 = fortuna.random();
 console.log(`I picked ${num1}!`);
 
 setTimeout(() => {
-  const num2 = fortuna.random();
-  console.log(`I picked ${num2}!`);
-}, 250);
+  const num1 = fortuna.random();
+  console.log(`I picked ${num1}!`);
+  fortuna.stopTimer();
+  clearInterval(entropyInterval);
+}, 5000);
 ```
 
 # Core Concept
