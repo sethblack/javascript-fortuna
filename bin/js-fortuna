@@ -1,0 +1,48 @@
+#!/usr/bin/env node
+
+'use strict';
+
+/*
+ * fortuna: Command line version of Fortuna JS library
+ *
+ * (C) 2017 Seth Black
+ *
+ */
+
+process.title = 'fortunajs';
+
+const fortuna = require('../lib/fortuna');
+const si = require('systeminformation');
+const sha512 = require('js-sha512');
+
+let entropyval;
+
+function entropyAccumFunction() {
+  return new Promise(async (resolve) => {
+    const cpuSpeed = await si.cpu();
+    const processes = await si.processes();
+    const disksIO = await si.disksIO();
+    const memory = await si.mem();
+
+    entropyval = sha512(`${JSON.stringify(cpuSpeed)}:${JSON.stringify(processes)}:${JSON.stringify(disksIO)}:${JSON.stringify(memory)}`);
+
+    resolve();
+  });
+}
+
+function entropyFunction() {
+  return entropyval;
+}
+
+async function run() {
+  await entropyAccumFunction();
+
+  fortuna.init({
+    timeBasedEntropy: false,
+    entropyFxn: entropyFunction,
+  });
+
+  process.stdout.write(`${fortuna.random()}\n`);
+}
+
+run();

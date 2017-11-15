@@ -19,6 +19,15 @@ const randomNumber = fortuna.random();
 console.log(`I picked ${randomNumber}!`);
 ```
 
+## Command-line Usage
+
+Javascript Fortuna comes with a simple command-line app that will generate a single random number seeded by your local environment.
+
+```shell
+$ js-fortuna
+0.7947502068732222
+```
+
 ## Advanced Usage
 
 To reduce predictability add entropy from dynamic sytem state inforation such as CPU usage, number of active processes, availalbe ram and disk io.

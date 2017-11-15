@@ -1,10 +1,13 @@
 {
   "name": "javascript-fortuna",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Javascript implementation of the Fortuna PRNG",
   "main": "lib/fortuna.js",
   "scripts": {
     "test": "mocha"
+  },
+  "bin": {
+    "js-fortuna": "bin/js-fortuna"
   },
   "repository": {
     "type": "git",
@@ -30,6 +33,7 @@
   },
   "dependencies": {
     "js-sha512": "^0.6.0",
-    "node-cryptojs-aes": "^0.4.0"
+    "node-cryptojs-aes": "^0.4.0",
+    "systeminformation": "^3.33.5"
   }
 }
