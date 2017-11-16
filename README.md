@@ -75,6 +75,14 @@ setTimeout(() => {
 }, 5000);
 ```
 
+# Building for web
+
+This will build ./build/fortuna.min.js for use in a web browser.
+
+```shell
+$ npm run webpack
+```
+
 # Core Concept
 
 Fortuna is a method of generating random numbers using AES encryption and an environment-based seed. It is more secure than simply using Math.random().
