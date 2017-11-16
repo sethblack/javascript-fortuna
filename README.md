@@ -77,10 +77,24 @@ setTimeout(() => {
 
 # Building for web
 
-This will build ./build/fortuna.min.js for use in a web browser.
+This will generate a ./build/fortuna.min.js file for use in a web browser.
 
 ```shell
 $ npm run webpack
+```
+
+## Basic Web Usage
+
+```javascript
+<script src="js/fortuna.min.js"></script>
+<script>
+(function () {
+  fortuna.init();
+
+  var randomNumber = fortuna.random()
+  alert('I picked ' + randomNumber + '!');
+})();
+</script>
 ```
 
 # Core Concept

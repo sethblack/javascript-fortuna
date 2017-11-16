@@ -1,5 +1,5 @@
-var path = require('path');
-var webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
@@ -8,6 +8,11 @@ module.exports = {
     path: path.resolve(__dirname, 'build'),
     filename: 'fortuna.min.js'
   },
+  plugins: [
+    new UglifyJsPlugin({
+      extractComments: true,
+    })
+  ],
   module: {
     loaders: [
       {
@@ -23,9 +28,4 @@ module.exports = {
     colors: true
   },
   devtool: 'source-map',
-  plugins: [
-    new UglifyJsPlugin({
-      parallel: true
-    })
-  ]
 };
