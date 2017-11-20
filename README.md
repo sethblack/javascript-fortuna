@@ -75,7 +75,7 @@ setTimeout(() => {
 }, 5000);
 ```
 
-# Building for web
+# Building for Browsers
 
 This will generate a ./build/fortuna.min.js file for use in a web browser.
 
@@ -83,7 +83,7 @@ This will generate a ./build/fortuna.min.js file for use in a web browser.
 $ npm run webpack
 ```
 
-## Basic Web Usage
+## Basic Browser Usage
 
 ```javascript
 <script src="js/fortuna.min.js"></script>
@@ -120,5 +120,5 @@ If you need an integer between min and max you can simply
 ```javascript
 const min = 4;
 const max = 10;
-const randomInt = parseInt((fortuna.random() * (max - min)) + min)
+const randomInt = parseInt((fortuna.random() * (max - min)) + min);
 ```
