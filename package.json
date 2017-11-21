@@ -1,6 +1,6 @@
 {
   "name": "javascript-fortuna",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Javascript implementation of the Fortuna PRNG",
   "main": "lib/fortuna.js",
   "scripts": {
