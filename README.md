@@ -125,4 +125,4 @@ const randomInt = parseInt((fortuna.random() * (max - min)) + min);
 
 # Visual Inspection
 
-![Random Pixel Test](https://github.com/sethblack/javascript-fortuna/boAllenNoEntropy.png)
+![Random Pixel Test](https://github.com/sethblack/javascript-fortuna/blob/master/boAllenNoEntropy.png)
