@@ -122,3 +122,7 @@ const min = 4;
 const max = 10;
 const randomInt = parseInt((fortuna.random() * (max - min)) + min);
 ```
+
+# Visual Inspection
+
+![Random Pixel Test](https://github.com/sethblack/javascript-fortuna/boAllenNoEntropy.png)
