@@ -36,6 +36,7 @@ To reduce predictability add entropy from dynamic sytem state inforation such as
 const fortuna = require('javascript-fortuna');
 const si = require('systeminformation');
 const sha512 = require('js-sha512');
+const jsspg = require('javascript-strong-password-generator');
 
 function entropyAccumFunction() {
   return new Promise(async (resolve) => {
