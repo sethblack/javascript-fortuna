@@ -1,0 +1,46 @@
+{
+  "name": "javascript-fortuna",
+  "version": "1.0.10",
+  "description": "Javascript implementation of the Fortuna PRNG",
+  "main": "lib/fortuna.js",
+  "scripts": {
+    "babel": "babel lib -d build --presets env",
+    "test": "mocha",
+    "webpack": "webpack"
+  },
+  "bin": {
+    "js-fortuna": "bin/js-fortuna"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sethblack/javascript-fortuna.git"
+  },
+  "keywords": [
+    "random number generator",
+    "random",
+    "prng",
+    "fortuna"
+  ],
+  "author": "Seth Black <sblack@sethserver.com> (https://www.sethserver.com)",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/sethblack/javascript-fortuna/issues"
+  },
+  "homepage": "https://github.com/sethblack/javascript-fortuna#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "eslint": "^4.11.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "mocha": "^4.0.1",
+    "uglifyjs-webpack-plugin": "^1.0.0-rc.0",
+    "webpack": "^3.8.1"
+  },
+  "dependencies": {
+    "js-sha512": "^0.6.0",
+    "node-cryptojs-aes": "^0.4.0",
+    "systeminformation": "^3.33.5"
+  }
+}
