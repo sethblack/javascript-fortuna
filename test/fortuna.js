@@ -9,7 +9,7 @@ const assert = require('assert');
 const fortuna = require('../lib/fortuna');
 
 describe('Fortuna', () => {
-  it('should init and set isetup up to a sane state', () => {
+  it('should init and set itself to a same state', () => {
     fortuna.init();
 
     assert.equal(fortuna.counter, 0);
@@ -29,6 +29,10 @@ describe('Fortuna', () => {
   });
 
   it('should have time based entropy', (done) => {
+    // without this (initialized = false), the test will fail,
+    // because previous instance of fortuna will be used
+    // and timeBasedEntropy option will be ignored
+    fortuna.initialized = false;
     fortuna.init({ timeBasedEntropy: true, accumulateTimeout: 10 });
     const firstEntropyVal = fortuna.entropy;
 
@@ -38,7 +42,8 @@ describe('Fortuna', () => {
 
     setTimeout(() => {
       const secondEntropyVal = fortuna.entropy;
-      assert(firstEntropyVal !== secondEntropyVal)
+      assert(firstEntropyVal !== secondEntropyVal);
+      fortuna.stopTimer(); // stop the timer to prevent it from running again
       done();
     }, 25);
   });
