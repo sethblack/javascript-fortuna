@@ -41,6 +41,6 @@
   "dependencies": {
     "js-sha512": "^0.6.0",
     "node-cryptojs-aes": "^0.4.0",
-    "systeminformation": "^3.33.5"
+    "systeminformation": "^5.25.11"
   }
 }
